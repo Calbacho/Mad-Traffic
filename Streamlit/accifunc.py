@@ -262,7 +262,7 @@ def acci_map():
         folium.Marker(location=[acci.iloc[i]['latitud'], acci.iloc[i]['longitud']], 
                     icon=DivIcon(icon_size=(30,30),
                                 icon_anchor=(15,-5),
-                                html=f'<div style="font-size: 14pt">%s</div>' % str(str(round(acci.iloc[i]['prob']*100,2))+'%')),
+                                html=f'<div style="font-size: 14pt">%s</div>' % str(str(round(acci.iloc[i]['prob']*200,2))+'%')),
                     popup=direccion(acci.iloc[i]['latitud'], acci.iloc[i]['longitud']),
                     tooltip=False,).add_to(madrid3)
 

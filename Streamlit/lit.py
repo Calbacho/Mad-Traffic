@@ -4,6 +4,7 @@ import numpy as np
 import folium
 from streamlit_folium import st_folium
 import accifunc as af
+import time
 
 
 st.set_page_config(page_title="Mad Traffic AI", page_icon=":car:", layout="wide", initial_sidebar_state="expanded")
@@ -18,30 +19,27 @@ st.sidebar.write("by Rafael Calbacho")
 
 
 
-with st.container():
 
-    st.write(':oncoming_automobile: Accidents prediction :oncoming_automobile:')
+st.write(':oncoming_automobile: Accidents prediction :oncoming_automobile:')
 
-    mapa1 = af.acci_map()
-        #display folium map
-    st1 = st_folium(mapa1 , width=800, height=500)
+mapa1 = af.acci_map()
+#display folium map
+st1 = st_folium(mapa1 , width=800, height=500)
+
+st.write('---')
+st.write(':vertical_traffic_light: Live Traffic in Madrid :vertical_traffic_light:')
+
+mapa2 = af.trafic_map()
+#display folium map
+st2 = st_folium(mapa2 , width=800, height=500)
 
 
-with st.container():
-    st.write('---')
-    st.write(':vertical_traffic_light: Traffic in Madrid :vertical_traffic_light:')
+st.write('---')
+st.write(':umbrella_with_rain_drops: Live Meteorology Madrid :umbrella_with_rain_drops:')
 
-    mapa2 = af.trafic_map()
-        #display folium map
-    st2 = st_folium(mapa2 , width=800, height=500)
-
-with st.container():
-    st.write('---')
-    st.write(':umbrella_with_rain_drops: Rain and wind :umbrella_with_rain_drops:')
-
-    mapa3 = af.meteo_map()
-        #display folium map
-    st3 = st_folium(mapa3 , width=800, height=500)
+mapa3 = af.meteo_map()
+#display folium map
+st3 = st_folium(mapa3 , width=800, height=500)
 
 
 
